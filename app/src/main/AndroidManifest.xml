@@ -5,22 +5,29 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-feature android:name="android.hardware.screen.portrait"/>
+
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
+        android:name="com.nazarov.movieslist.MainApp"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoviesList"
-        tools:targetApi="31">
+        tools:ignore="LockedOrientationActivity">
+
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="com.nazarov.movieslist.presentation.MainActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.nazarov.movieslist.presentation.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MoviesList.Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

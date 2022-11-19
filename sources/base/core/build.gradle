@@ -7,7 +7,7 @@ applyDagger(this)
 dependencies {
 
     implementation javaxDependency
-    implementation retrofitDependency
+    api retrofitDependency
     implementation converterGsonDependency
     api lifecycleViewmodelKtxDependency
 }
