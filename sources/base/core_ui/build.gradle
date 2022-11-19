@@ -1,0 +1,16 @@
+apply from: "$project.rootDir/scripts/module_methods.gradle"
+
+applyKotlin(this)
+applyAndroidModuleSettings(this)
+applyDagger(this)
+applyViewBinding(this)
+
+dependencies {
+
+    implementation appcompatDependency
+    implementation coroutinesDependency
+    implementation materialDependency
+    api lifecycleViewmodelKtxDependency
+
+    implementation project(":core")
+}

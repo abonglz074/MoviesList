@@ -1,0 +1,14 @@
+apply from: "$project.rootDir/scripts/module_methods.gradle"
+
+applyKotlin(this)
+applyAndroidModuleSettings(this)
+applyDagger(this)
+
+dependencies {
+
+    implementation retrofitDependency
+    implementation converterGsonDependency
+    implementation loggingInterceptorDependency
+
+    implementation project(":core")
+}

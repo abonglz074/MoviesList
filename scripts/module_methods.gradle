@@ -1,0 +1,50 @@
+apply from: "$project.rootDir/scripts/external_dependencies.gradle"
+apply from: "$project.rootDir/scripts/android_config.gradle"
+
+ext {
+    applyDagger = { module ->
+        module.dependencies {
+            implementation daggerDependency
+            kapt daggerCompiler
+        }
+    }
+
+    applyKotlin = { module ->
+        module.configure(module) {
+            apply plugin: 'kotlin-android'
+            apply plugin: 'kotlin-kapt'
+        }
+    }
+
+    applyAndroidModuleSettings = { module ->
+        module.configure(module) {
+
+            apply plugin: 'com.android.library'
+
+            android {
+                compileSdkVersion androidCompileSdkVersion
+
+                defaultConfig {
+                    minSdkVersion androidMinSdkVersion
+                    targetSdkVersion androidTargetSdkVersion
+                }
+                buildTypes {
+                    release {
+                        minifyEnabled false
+                        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                    }
+                }
+            }
+        }
+    }
+
+    applyViewBinding = { module ->
+        module.configure(module) {
+            android {
+                buildFeatures {
+                    viewBinding true
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+apply from: "$project.rootDir/scripts/module_methods.gradle"
+apply from: "$project.rootDir/scripts/android_config.gradle"
+apply from: "$project.rootDir/scripts/common_methods.gradle"
+
+applyViewBinding(this)
+applyDagger(this)
+
+android {
+
+    compileSdk androidCompileSdkVersion
+
+    defaultConfig {
+        minSdk androidMinSdkVersion
+        targetSdk androidTargetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation coreDependency
+    implementation appcompatDependency
+    implementation fragmentKtxDependency
+    implementation lifecycleViewmodelKtxDependency
+
+    implementation materialDependency
+
+    implementation retrofitDependency
+    implementation converterGsonDependency
+    implementation loggingInterceptorDependency
+
+    file("$project.rootDir/sources/base").listFiles().each { baseModule ->
+        if (baseModule.isDirectory() && isConstainsBuildFiles(baseModule)) {
+            implementation project(":${baseModule.name}")
+        }
+    }
+    file("$project.rootDir/sources/features").listFiles().each { featureModule ->
+        if (featureModule.isDirectory() && isConstainsBuildFiles(featureModule)) {
+            implementation project(":${featureModule.name}")
+        }
+    }
+    file("$project.rootDir/sources/api").listFiles().each { apiModule ->
+        if (apiModule.isDirectory() && isConstainsBuildFiles(apiModule)) {
+            implementation project(":${apiModule.name}")
+        }
+    }
+}

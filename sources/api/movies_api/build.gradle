@@ -1,0 +1,9 @@
+apply from: "$project.rootDir/scripts/module_methods.gradle"
+
+applyKotlin(this)
+applyAndroidModuleSettings(this)
+
+dependencies {
+
+    implementation fragmentKtxDependency
+}

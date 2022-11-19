@@ -1,0 +1,30 @@
+ext {
+    // versions
+    coreKtxVersion = '1.8.0'
+    appcompatVersion = '1.4.2'
+    materialVersion = '1.6.1'
+    daggerVersion = '2.42'
+    retrofitVersion = '2.9.0'
+    fragmentKtxVersion = '1.5.0'
+    javaxInjectVersion = '1'
+    glideVersion = '4.13.1'
+    kotlinxCoroutinesAndroidVersion = '1.6.2'
+    lifecycleViewmodelKtxVersion = '2.4.1'
+    loggingInterceptorVersion = '5.0.0-alpha.3'
+
+    //dependencies
+    coreDependency = "androidx.core:core-ktx:$coreKtxVersion"
+    appcompatDependency = "androidx.appcompat:appcompat:$appcompatVersion"
+    fragmentKtxDependency = "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+    lifecycleViewmodelKtxDependency = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleViewmodelKtxVersion"
+    materialDependency = "com.google.android.material:material:$materialVersion"
+    daggerDependency = "com.google.dagger:dagger:$daggerVersion"
+    daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+    retrofitDependency = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    converterGsonDependency = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    loggingInterceptorDependency = "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+    coroutinesDependency = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxCoroutinesAndroidVersion"
+    javaxDependency = "javax.inject:javax.inject:$javaxInjectVersion"
+    glideDependency = "com.github.bumptech.glide:glide:$glideVersion"
+    coroutinesTestDependency = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesAndroidVersion"
+}
