@@ -27,6 +27,7 @@ def includeBaseModule = { name ->
 includeBaseModule("network")
 includeBaseModule("core")
 includeBaseModule("core_ui")
+includeBaseModule("core_impl")
 
 /**
 
