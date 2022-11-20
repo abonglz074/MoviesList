@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.nazarov.movieslist.core.network.ResponseStatus
 import com.nazarov.movieslist.coreui.viewmodel.BaseViewModel
-import com.nazarov.movieslist.movies.domain.entities.MoviesListResponse
-import com.nazarov.movieslist.movies.domain.usecases.RequestMoviesListUseCase
+import com.nazarov.movieslist.movies.data.entities.MoviesListResponse
+import com.nazarov.movieslist.movies.data.repository.MoviesRepositoryImpl
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MoviesViewModel
 @Inject constructor(
-    private val moviesListUseCase: RequestMoviesListUseCase
+    private val repository: MoviesRepositoryImpl
 ): BaseViewModel() {
 
     val navigateBack: LiveData<Unit>
@@ -37,7 +37,7 @@ class MoviesViewModel
 
     fun getMoviesList() {
         viewModelScope.launch {
-            when(val response = moviesListUseCase.invoke()) {
+            when(val response = repository.requestMoviesList()) {
                 is ResponseStatus.Success -> _moviesList.postValue(response.data)
                 is ResponseStatus.Error -> _errorMessage.postValue(response.message)
                 is ResponseStatus.Loading -> _progressBar.postValue(response.isLoading)

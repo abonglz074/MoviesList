@@ -21,13 +21,11 @@ abstract class BaseRoutingFragment<VB : ViewBinding, VM : BaseViewModel, R : Bas
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         router.bindActivity(requireActivity())
-        router.bindFragmentManager(parentFragmentManager)
     }
 
     @CallSuper
     override fun onDestroy() {
         router.unbindActivity()
-        router.unbindFragmentManager()
         super.onDestroy()
     }
 }
