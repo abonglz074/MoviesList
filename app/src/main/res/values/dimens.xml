@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_screen_title_text_size">30sp</dimen>
+    <dimen name="splash_screen_title_margin_top">200dp</dimen>
+    <dimen name="splash_screen_progressbar_margin_top">50dp</dimen>
+</resources>

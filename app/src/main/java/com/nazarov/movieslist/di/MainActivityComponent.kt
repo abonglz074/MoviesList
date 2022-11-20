@@ -1,7 +1,8 @@
 package com.nazarov.movieslist.di
 
-import com.nazarov.movieslist.MainActivity
+import com.nazarov.movieslist.presentation.MainActivity
 import com.nazarov.movieslist.core.DependenciesProvider
+import com.nazarov.movieslist.core.getNavigator
 import com.nazarov.movieslist.welcomeapi.WelcomeNavigator
 import dagger.Component
 
@@ -20,6 +21,7 @@ interface MainActivityComponent {
         ): MainActivityComponent {
             return DaggerMainActivityComponent.builder()
                 .dependenciesProvider(dependenciesProvider)
+                .welcomeNavigator(dependenciesProvider.getNavigator())
                 .build()
         }
     }

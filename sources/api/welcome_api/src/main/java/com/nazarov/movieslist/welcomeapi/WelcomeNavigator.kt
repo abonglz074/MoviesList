@@ -1,6 +1,8 @@
 package com.nazarov.movieslist.welcomeapi
 
+import androidx.fragment.app.FragmentActivity
+
 interface WelcomeNavigator {
 
-    fun openWelcomeFragment()
+    fun openWelcomeFragment(fragmentActivity: FragmentActivity)
 }
