@@ -15,19 +15,8 @@ abstract class BaseRouter {
         }
     }
 
-    protected fun getParentFragmentManager(action: (fragmentManager: FragmentManager) -> Unit) {
-        val fragmentManager = fragmentManager ?: return
-        if (!fragmentManager.isStateSaved) {
-            action(fragmentManager)
-        }
-    }
-
     fun bindActivity(fragmentActivity: FragmentActivity) {
         this.fragmentActivity = fragmentActivity
-    }
-
-    fun bindFragmentManager(fragmentManager: FragmentManager) {
-        this.fragmentManager = fragmentManager
     }
 
     fun unbindActivity() {

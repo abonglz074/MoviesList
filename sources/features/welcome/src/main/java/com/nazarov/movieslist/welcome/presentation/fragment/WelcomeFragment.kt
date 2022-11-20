@@ -1,5 +1,6 @@
 package com.nazarov.movieslist.welcome.presentation.fragment
 
+import android.os.Bundle
 import android.view.View
 import com.nazarov.movieslist.core.DependenciesProvider
 import com.nazarov.movieslist.coreui.fragment.BaseRoutingFragment
@@ -12,7 +13,7 @@ import com.nazarov.movieslist.welcome.presentation.viewmodel.WelcomeViewModel
 private typealias BaseWelcomeRoutingFragment =
         BaseRoutingFragment<WelcomeFragmentBinding, WelcomeViewModel, WelcomeRouter>
 
-class WelcomeFragment: BaseWelcomeRoutingFragment(
+class WelcomeFragment : BaseWelcomeRoutingFragment(
     R.layout.welcome_fragment,
     WelcomeViewModel::class.java
 ) {
@@ -22,4 +23,23 @@ class WelcomeFragment: BaseWelcomeRoutingFragment(
     }
 
     override fun initBinding(view: View): WelcomeFragmentBinding = WelcomeFragmentBinding.bind(view)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupActions()
+        observeNavigation()
+    }
+
+    private fun setupActions() {
+        binding.welcomeNavToMoviesListButton.setOnClickListener {
+            viewModel.onNavigateToMoviesListClicked()
+        }
+    }
+
+    private fun observeNavigation() {
+        viewModel.navigateToMoviesList.observe(viewLifecycleOwner) {
+            router.openMoviesFragment()
+        }
+    }
 }

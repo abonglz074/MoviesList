@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- TextSizes -->
+    <dimen name="standard_text_size_20sp">20sp</dimen>
+    <!-- Core Dimensions -->
+    <dimen name="standard_margin_top_200dp">200dp</dimen>
+    <dimen name="standard_margin_top_50dp">50dp</dimen>
+</resources>

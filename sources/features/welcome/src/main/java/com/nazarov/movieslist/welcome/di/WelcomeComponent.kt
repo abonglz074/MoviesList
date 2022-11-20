@@ -2,11 +2,12 @@ package com.nazarov.movieslist.welcome.di
 
 import com.nazarov.movieslist.core.DependenciesProvider
 import com.nazarov.movieslist.core.di.ViewModelFactoryModule
+import com.nazarov.movieslist.core.scopes.FeatureScope
 import com.nazarov.movieslist.welcome.presentation.fragment.WelcomeFragment
 import dagger.Component
 import javax.inject.Singleton
 
-@Singleton
+@FeatureScope
 @Component(
     dependencies = [DependenciesProvider::class],
     modules = [
@@ -19,9 +20,7 @@ interface WelcomeComponent {
 
     companion object {
 
-        fun init(
-            dependenciesProvider: DependenciesProvider
-        ): WelcomeComponent {
+        fun init(dependenciesProvider: DependenciesProvider): WelcomeComponent {
             return DaggerWelcomeComponent.factory()
                 .create(dependenciesProvider)
         }
@@ -29,9 +28,7 @@ interface WelcomeComponent {
 
     @Component.Factory
     interface Factory {
-        fun create(
-            dependenciesProvider: DependenciesProvider
-        ): WelcomeComponent
+        fun create(dependenciesProvider: DependenciesProvider): WelcomeComponent
     }
 
     fun inject(welcomeFragment: WelcomeFragment)
