@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nazarov.movieslist.core.DependenciesProvider
 import com.nazarov.movieslist.coreui.fragment.BaseRoutingFragment
 import com.nazarov.movieslist.movies.R
+import com.nazarov.movieslist.movies.data.entities.MoviesListResponse
 import com.nazarov.movieslist.movies.databinding.MoviesFragmentBinding
 import com.nazarov.movieslist.movies.di.MoviesComponent
+import com.nazarov.movieslist.movies.presentation.adapter.MoviesAdapter
 import com.nazarov.movieslist.movies.presentation.router.MoviesRouter
 import com.nazarov.movieslist.movies.presentation.viewmodel.MoviesViewModel
 
@@ -19,6 +21,9 @@ class MoviesFragment: BaseMoviesRoutingFragment(
     MoviesViewModel::class.java
 ) {
 
+    private lateinit var adapter: MoviesAdapter
+    private lateinit var moviesList: MoviesListResponse
+
     override fun initDaggerComponent(dependenciesProvider: DependenciesProvider) {
         MoviesComponent.init(dependenciesProvider).inject(this)
     }
@@ -27,5 +32,22 @@ class MoviesFragment: BaseMoviesRoutingFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        showRecycler()
+    }
+
+    private fun showRecycler() {
+        adapter = MoviesAdapter { onItemClicked() }
+        binding.moviesRecyclerView.adapter = adapter
+        binding.moviesRecyclerView.layoutManager = LinearLayoutManager(context)
+
+        viewModel.getMoviesList()
+        viewModel.moviesList.observe(viewLifecycleOwner) { response ->
+            adapter.submitList(response.movies)
+        }
+    }
+
+    private fun onItemClicked() {
+
     }
 }

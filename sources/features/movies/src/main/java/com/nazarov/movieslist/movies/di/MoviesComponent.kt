@@ -13,7 +13,7 @@ import dagger.Component
         MoviesViewModelModule::class,
         ProvideNavigatorsModule::class,
         ViewModelFactoryModule::class,
-        MoviesDataModule::class,
+        MoviesNetworkModule::class,
     ]
 )
 interface MoviesComponent {

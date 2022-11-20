@@ -10,6 +10,7 @@ dependencies {
     implementation coreDependency
     implementation appcompatDependency
     implementation materialDependency
+    implementation glideDependency
 
     implementation project(":core")
     implementation project(":core_ui")
