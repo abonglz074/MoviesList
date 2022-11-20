@@ -14,4 +14,5 @@ dependencies {
     implementation project(":core")
     implementation project(":core_ui")
     implementation project(":welcome_api")
+    implementation project(":movies_api")
 }
