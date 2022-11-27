@@ -1,0 +1,6 @@
+com.nazarov.movieslist.welcome
+id welcome_application_title
+id welcome_nav_to_movies_list_button
+layout welcome_fragment
+string welcome_nav_to_movies_list_button_text
+string welcome_title

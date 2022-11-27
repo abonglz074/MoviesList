@@ -1,0 +1,4 @@
+R_DEF: Internal format may change without notice
+local
+dimen core_ui_margin_top_20dp
+drawable core_ui_default_icon

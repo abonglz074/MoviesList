@@ -1,0 +1,5 @@
+R_DEF: Internal format may change without notice
+local
+dimen standard_margin_top_200dp
+dimen standard_margin_top_50dp
+dimen standard_text_size_20sp

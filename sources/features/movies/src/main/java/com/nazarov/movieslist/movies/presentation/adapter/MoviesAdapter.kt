@@ -6,12 +6,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nazarov.movieslist.movies.data.entities.MoviesListResponse
-import com.nazarov.movieslist.movies.data.entities.MoviesListResponseItem
 import com.nazarov.movieslist.movies.databinding.MoviesListItemBinding
 
 class MoviesAdapter(
     private val clickListener: () -> Unit
-) : ListAdapter<MoviesListResponseItem, MoviesViewHolder>(MoviesDiffUtil) {
+) : ListAdapter<MoviesListResponse, MoviesViewHolder>(MoviesDiffUtil) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
@@ -34,13 +33,7 @@ class MoviesViewHolder(
     private val binding: MoviesListItemBinding
 ): RecyclerView.ViewHolder(binding.root) {
 
-    private val image = binding.moviesItemListImage
-
-    fun bind(model: MoviesListResponseItem) {
+    fun bind(model: MoviesListResponse) {
         binding.moviesItemListName.text = model.name
-        Glide.with(image)
-            .load(model.image.medium)
-            .centerCrop()
-            .submit()
     }
 }

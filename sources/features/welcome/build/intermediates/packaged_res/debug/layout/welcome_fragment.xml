@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/welcome_application_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/standard_margin_top_200dp"
+        android:text="@string/welcome_title"
+        android:textSize="@dimen/standard_text_size_20sp" />
+
+    <Button
+        android:id="@+id/welcome_nav_to_movies_list_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/standard_margin_top_50dp"
+        android:text="@string/welcome_nav_to_movies_list_button_text"
+        android:textSize="@dimen/standard_text_size_20sp" />
+
+</LinearLayout>

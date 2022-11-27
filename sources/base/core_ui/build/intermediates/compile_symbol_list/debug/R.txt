@@ -1,0 +1,2 @@
+int dimen core_ui_margin_top_20dp 0x0
+int drawable core_ui_default_icon 0x0
