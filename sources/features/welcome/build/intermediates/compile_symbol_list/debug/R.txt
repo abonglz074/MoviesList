@@ -1,0 +1,5 @@
+int id welcome_application_title 0x0
+int id welcome_nav_to_movies_list_button 0x0
+int layout welcome_fragment 0x0
+int string welcome_nav_to_movies_list_button_text 0x0
+int string welcome_title 0x0

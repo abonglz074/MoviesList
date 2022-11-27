@@ -1,0 +1,3 @@
+com.nazarov.movieslist.coreui
+dimen core_ui_margin_top_20dp
+drawable core_ui_default_icon

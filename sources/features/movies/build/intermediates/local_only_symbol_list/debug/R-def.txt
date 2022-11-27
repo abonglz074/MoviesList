@@ -1,0 +1,10 @@
+R_DEF: Internal format may change without notice
+local
+id movies_error_message
+id movies_item_list_name
+id movies_progress_bar
+id movies_recycler_view
+id movies_screen_title
+layout movies_fragment
+layout movies_list_item
+layout movies_screen_title

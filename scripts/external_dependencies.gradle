@@ -26,5 +26,6 @@ ext {
     coroutinesDependency = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinxCoroutinesAndroidVersion"
     javaxDependency = "javax.inject:javax.inject:$javaxInjectVersion"
     glideDependency = "com.github.bumptech.glide:glide:$glideVersion"
+    glideAnnotationProcessorDependency = "com.github.bumptech.glide:compiler:$glideVersion"
     coroutinesTestDependency = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesAndroidVersion"
 }
